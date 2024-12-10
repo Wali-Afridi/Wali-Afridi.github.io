@@ -8,19 +8,18 @@
 </head>
 <body>
     <header>
-        <div class="header-title"><a href="index.html">My Portfolio</a></div>
-        <nav>
+        <div class="header-title"><a href="index.html">Wali Afridi Portfolio</a></div>
+        <!-- <nav>
             <ul>
                 <li><a href="index.html">Home</a></li>
-                <!-- Add more links as needed -->
             </ul>
-        </nav>
+        </nav> -->
     </header>
 
     <main>
         <section class="project-introduction">
             <h1>Hydrophones Board</h1>
-            <img src="images/H2O3D.png" alt="Thruster" id="thrust">
+            <img src="images/H2O3D.png" width="500px">
             
         </section>
 
@@ -30,7 +29,7 @@
                 to enable pinger tracking and inter-vehicular communication. The board takes input from 4 
                 TELEDYNE RESON TC4013 piezoelectric transducers, and outputs critical data regarding pinger direction 
                 and recieved data via serial communication to the main submarine computer.</p>
-            <h2>High Level Description</h2>
+            <h2>High Level Overview</h2>
             <p style="margin-left: 200px; margin-right: 200px;" align="left">First, the incoming sound-pressure signals are amplified using voltage feedback amplifiers because they are low amplitude signals represented by total charge rather than voltage. Then, the signals are passed through bandpass filters to avoid aliasing and low-frequency rumble. Each channel has two separate bandpass filters, one with a passband corresponding to the communications frequency range, and the other with a passband corresponding to the pinger frequency specifications. After these filters, the two sets of signals, pinger and comms, are digitized using simultaneously sampling
                 Analog-to-Digital Converters (ADCs) with programmable gain input stages;
                 the gain loop for the ADCs is run on the MCU. Then, the samples are processed on the STM32 MCU and information such as the heading toward the pinger and communicated messages are sent to the Jetson via RS232 serial out of the enclosure.</p>
