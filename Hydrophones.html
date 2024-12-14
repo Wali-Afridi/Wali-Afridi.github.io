@@ -28,7 +28,7 @@
             <p style="margin-left: 200px; margin-right: 200px;" align="left">The hydrophones board is responsible for acoustic data acquisition and signal processing 
                 to enable pinger tracking and inter-vehicular communication. The board takes input from 4 
                 TELEDYNE RESON TC4013 piezoelectric transducers, and outputs critical data regarding pinger direction 
-                and recieved data via serial communication to the main submarine computer.</p>
+                and recieved data via UART communication to the main submarine computer.</p>
             <h2>High Level Overview</h2>
             <p style="margin-left: 200px; margin-right: 200px;" align="left">First, the incoming sound-pressure signals are amplified using voltage feedback amplifiers because they are low amplitude signals represented by total charge rather than voltage. Then, the signals are passed through bandpass filters to avoid aliasing and low-frequency rumble. Each channel has two separate bandpass filters, one with a passband corresponding to the communications frequency range, and the other with a passband corresponding to the pinger frequency specifications. After these filters, the two sets of signals, pinger and comms, are digitized using simultaneously sampling
                 Analog-to-Digital Converters (ADCs) with programmable gain input stages;
@@ -43,13 +43,16 @@
         <section class="project-media">
             <h2>Layout Images and Schematic PDF (Full documentation coming soon)</h2>
             <figure>
-                <figcaption>Hydrophones Board Layout</figcaption>
+                <h3>Hydrophones Board Layout</h3>
                 <img src="images/H20AllLayers.png" width="500px" >
             </figure>
+            <h3>Front (red) and back (blue) copper</h3>
             <img src="images/H20FrontCopper.png" width="500px">
             <img src="images/H20BackCopper.png" width="500px">
+            <h3>Ground and Power planes</h3>
             <img src="images/H2OGroundCopper.png" width="500px">
             <img src="images/H2OPWRCopper.png" width="500px">
+            <h3>Schematics</h3>
             <embed src="images/H2OSchematic.pdf" width="850" height="1100"
             type="application/pdf">
             <!-- Optionally, embed videos or other media -->
