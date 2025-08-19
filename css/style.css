@@ -212,6 +212,7 @@ main {
 .tag.craftsmanship { background-color: #8b4513; }
 .tag.cad { background-color: #3498db; }
 .tag.manufacturing { background-color: #95a5a6; }
+.tag.mixed-signal { background-color: #b1ca24; }
 
 footer {
     background-color: #333;
