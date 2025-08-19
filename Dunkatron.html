@@ -20,50 +20,57 @@
         <section class="project-details">
             <h2>Project Description</h2>
             <p style="margin-left: 200px; margin-right: 200px;" align="left">
-                [Add project description here - Dunkatron is an innovative wireless game controller designed to combine 
-                gaming with mindfulness and meditation. The device uses unique input methods that encourage calm, 
-                deliberate movements, creating a more meditative gaming experience while maintaining engaging gameplay mechanics.]
+                As a part of the 2025 Cornell Maker Club Makeathon, my friend Sam Belliveau and I designed and built the Dunkatron 
+                Breathometer in under 24 hours. The Dunkatron is a wireless game controller that uses a microcontroller and some nifty 
+                signal processing to measure the user's breathing rate, and then transmit that to a host computer via Bluetooth Low Energy (BLE).
+                The controller features a compact 3D printed enclosure with swappable mouthpieces, an OLED display, a tactile power button 
+                and an ESP32 microcontroller for signal processing and wireless communication. The entire system is powered by a lithium-ion 
+                battery, which can easily be replaced.
             </p>
-            
-            <h2>Design Philosophy and Implementation</h2>
-            <p style="margin-left: 200px; margin-right: 200px;" align="left">
-                [Add technical details here - Include information about the hardware design, wireless communication, 
-                sensor integration, user interface considerations, and how the meditative aspects are incorporated 
-                into the controller's functionality.]
-            </p>
-            
-            <h2>Project Details</h2>
-            <ul style="margin-left: 200px; margin-right: 200px;" align="left">
-                <li><strong>Project Name:</strong> Dunkatron: Meditative Wireless Game Controller</li>
-                <li><strong>Project Type:</strong> Product Design, Embedded Systems, Human-Computer Interaction</li>
-                <li><strong>Project Timeline:</strong> [Add timeline here]</li>
-                <li><strong>Tools Used:</strong> [Add tools - e.g., Arduino/ESP32, Wireless modules, 3D printing, etc.]</li>
-                <li><strong>Key Features:</strong> Wireless connectivity, Meditative input methods, Custom game integration</li>
-                <li><strong>Focus Areas:</strong> Wellness technology, Alternative interfaces, Mindful gaming</li>
-            </ul>
-        </section>
+            <img src="images/DunkatronBack.png" alt="Dunkatron Controller" width="500px">
 
-        <section class="project-media">
-            <h2>Design and Development</h2>
-            <p style="margin-left: 200px; margin-right: 200px;">
-                [Add documentation here - Include design sketches, prototypes, user testing results, 
-                technical specifications, and gameplay demonstrations]
+            <p style="margin-left: 200px; margin-right: 200px;" align="left">
+                We wanted to create a wireless breathing device that could be used to control a program on a computer.
+                There are many health benefits of controlled breathing exercises, and a computer program measuring your 
+                breathing could help guide you through the process. In particular, we envisioned the system being used to
+                alleviate stress or anxiety attacks through a meditative game. 
             </p>
-            
-            <!-- Placeholder for project content -->
-            <div style="margin: 20px 0;">
-                <h3>Hardware Design</h3>
-                <p>[Add images of the controller hardware, PCB design, enclosure]</p>
-                
-                <h3>Software Architecture</h3>
-                <p>[Add information about firmware, wireless protocol, game integration]</p>
-                
-                <h3>User Experience Design</h3>
-                <p>[Add details about the meditative aspects, user testing, ergonomics]</p>
-                
-                <h3>Demonstration</h3>
-                <p>[Add videos or images showing the controller in action]</p>
-            </div>
+            <p style="margin-left: 200px; margin-right: 200px;" align="left">
+                To do this, we also created a simple game in Python using the Pygame library. The game is 
+                very similar to the classic game "Flappy Bird", where the player controls a character that 
+                must navigate through a series of obstacles. In our version, however, the character must simply maintain
+                a steady altitude by controlling their breathing rate, incentivizing controlled, slow breaths. 
+                The game is designed to be simple and relaxing,
+                with the goal of helping the player focus on their breathing and achieve a meditative state.
+            </p>
+
+            <h3>Signal Processing</h2>
+            <p style="margin-left: 200px; margin-right: 200px;" align="left">
+                To keep costs low, the breathing is detected with a microphone; However, past a certain strength of breathing, 
+                the amplitude clips, making it difficult to continue tracking strength. After investigating the issue, we 
+                noticed that the frequency of the microphone continued increasing the harder we blew. This made us realize that 
+                we could use the frequency of the microphone signal to track breathing strength, rather than the amplitude. We needed 
+                this signal processing to happen on our ESP32, as BLE does not have the bandwidth to transmit the full audio signal. 
+                With that being said, measuring frequency in real time is not a trivial task on such a small microcontroller. 
+            </p>
+            <img src="images/DunkatronCode.png" alt="Dunkatron Controller" width="400px">
+
+            <p style="margin-left: 200px; margin-right: 200px;" align="left">
+                We built a chainable filter library in c++ for this project that allowed us to quickly experiment with various 
+                filtering algorithms. We ended up using a derivative filter to process our samples. By using a Derivative Filter, 
+                which has a frequency response that increases linearly as the frequency increases, we can read higher values for 
+                higher frequencies. We found that this gave us a remarkably impressive reading for breathing strength, and made for 
+                intuitive game controls.
+            </p>
+            <p style="margin-left: 200px; margin-right: 200px;" align="left">
+                We could only send ~30 readings a second over our BLE connection.
+                As a result, we needed to smooth out our amplitude measurements to cover all of the samples 
+                that happen over a span of time. By using 2 Timed Moving Averages and 
+                2 Single Pole IIR Low Pass Filters, we are able to very quickly calculate a smoothed amplitude.
+                In total, our filter is equivalent to doing a weighted average of the frequencies in the audio, 
+                but performed at a high speed.
+            </p>
+
         </section>
     </main>
 

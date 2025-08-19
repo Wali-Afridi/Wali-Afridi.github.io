@@ -20,48 +20,37 @@
         <section class="project-details">
             <h2>Project Description</h2>
             <p style="margin-left: 200px; margin-right: 200px;" align="left">
-                [Add project description here - This project involved designing and implementing a single-cycle processor 
-                architecture on an FPGA platform, along with a specialized accumulator accelerator for enhanced computational 
-                performance. The design demonstrates fundamental computer architecture concepts including instruction fetch, 
-                decode, execute cycles, and hardware acceleration techniques.]
+                As part of the final lab in ECE 2300: Digital Logic and Computer Organization, I designed, implemented, and 
+                tested two different digital systems in Verilog, and then synthesized and compared them on an FPGA. 
+                The Tiny RISC-V processor was built as a minimal general-purpose CPU capable of executing a subset of 
+                the RISC-V ISA, with  instruction fetch, decode, execution, and write-back stages implemented in RTL. 
+                The accumulator accelerator, by contrast, was a custom hardware module optimized specifically 
+                for repeated accumulation operations.
             </p>
-            
-            <h2>Technical Overview</h2>
+
             <p style="margin-left: 200px; margin-right: 200px;" align="left">
-                [Add technical details here - Include information about the processor architecture, instruction set, 
-                FPGA implementation details, accumulator accelerator design, performance metrics, and any optimization 
-                techniques used.]
+                I used Verilog to implement a single-cycle processor microarchitecture that's compatible 
+                with the TinyRV1 instruction set architecture (ISA), a simplified version of the popular RISC-V ISA.
+                I built the processor in a modular way, designing the datapath, control unit, and memory as separate 
+                pieces before putting them all together. After the design was complete, I used a rigorous testing process 
+                with custom testbenches to verify that the processor would execute assembly programs exactly as expected.
             </p>
-            
-            <h2>Project Details</h2>
-            <ul style="margin-left: 200px; margin-right: 200px;" align="left">
-                <li><strong>Project Name:</strong> Single Cycle Processor and Accumulator Accelerator</li>
-                <li><strong>Course:</strong> ECE 2300: Digital Logic and Computer Organization</li>
-                <li><strong>Project Type:</strong> FPGA Design, Verilog Implementation, Computer Architecture</li>
-                <li><strong>Project Timeline:</strong> [Add timeline here - e.g., Fall 2024]</li>
-                <li><strong>Tools Used:</strong> Verilog, Intel Quartus Prime, FPGA Development Board</li>
-                <li><strong>Key Concepts:</strong> Single-cycle processor design, instruction set architecture, hardware acceleration</li>
-            </ul>
+
+            <p style="margin-left: 200px; margin-right: 200px;" align="left">
+                Next, I moved the design from simulation to reality by prototyping it on a physical FPGA board. 
+                Using the Intel Quartus Prime software, I synthesized the Verilog code and performed static timing 
+                analysis to ensure the design would run at high speeds without any issues. I was then able to configure 
+                the board to run a variety of TinyRV1 assembly programs, including a simple three-function calculator.
+            </p>
+            <p style="margin-left: 200px; margin-right: 200px;" align="left">
+                For the final phase, I got to explore performance optimization. I designed and built a specialized 
+                hardware accelerator to handle a specific accumulation task, and then I compared its performance 
+                head-to-head against the general-purpose processor. I analyzed metrics like cycles per workload to 
+                demonstrate the significant speedup that hardware acceleration can provide for specific tasks. 
+                The entire project was managed using professional tools like Git in a Linux development environment.                
+            </p>
         </section>
 
-        <section class="project-media">
-            <h2>Documentation and Implementation</h2>
-            <p style="margin-left: 200px; margin-right: 200px;">
-                [Add documentation here - Include block diagrams, timing diagrams, test results, and any relevant code snippets or schematics]
-            </p>
-            
-            <!-- Placeholder for images, videos, or documents -->
-            <div style="margin: 20px 0;">
-                <h3>Block Diagram</h3>
-                <p>[Add processor block diagram image here]</p>
-                
-                <h3>Implementation Results</h3>
-                <p>[Add FPGA synthesis results, timing analysis, resource utilization]</p>
-                
-                <h3>Performance Analysis</h3>
-                <p>[Add performance metrics, comparison with baseline, acceleration factors]</p>
-            </div>
-        </section>
     </main>
 </body>
 </html>
