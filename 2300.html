@@ -19,7 +19,7 @@
 
         <section class="project-details">
             <h2>Project Description</h2>
-            <p style="margin-left: 200px; margin-right: 200px;" align="left">
+            <p class="project-text">
                 As part of the final lab in ECE 2300: Digital Logic and Computer Organization, I designed, implemented, and 
                 tested two different digital systems in Verilog, and then synthesized and compared them on an FPGA. 
                 The Tiny RISC-V processor was built as a minimal general-purpose CPU capable of executing a subset of 
@@ -28,7 +28,7 @@
                 for repeated accumulation operations.
             </p>
 
-            <p style="margin-left: 200px; margin-right: 200px;" align="left">
+            <p class="project-text">
                 I used Verilog to implement a single-cycle processor microarchitecture that's compatible 
                 with the TinyRV1 instruction set architecture (ISA), a simplified version of the popular RISC-V ISA.
                 I built the processor in a modular way, designing the datapath, control unit, and memory as separate 
@@ -36,13 +36,13 @@
                 with custom testbenches to verify that the processor would execute assembly programs exactly as expected.
             </p>
 
-            <p style="margin-left: 200px; margin-right: 200px;" align="left">
+            <p class="project-text">
                 Next, I moved the design from simulation to reality by prototyping it on a physical FPGA board. 
                 Using the Intel Quartus Prime software, I synthesized the Verilog code and performed static timing 
                 analysis to ensure the design would run at high speeds without any issues. I was then able to configure 
                 the board to run a variety of TinyRV1 assembly programs, including a simple three-function calculator.
             </p>
-            <p style="margin-left: 200px; margin-right: 200px;" align="left">
+            <p class="project-text">
                 For the final phase, I got to explore performance optimization. I designed and built a specialized 
                 hardware accelerator to handle a specific accumulation task, and then I compared its performance 
                 head-to-head against the general-purpose processor. I analyzed metrics like cycles per workload to 

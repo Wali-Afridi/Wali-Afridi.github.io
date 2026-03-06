@@ -345,6 +345,14 @@ footer p {
     font-size: 0.9rem;
 }
 
+.project-text {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: left;
+    line-height: 1.6;
+    padding: 0 20px;
+}
+
 /* Media Queries for Mobile Responsiveness */
 @media (max-width: 768px) {
     .about-container {

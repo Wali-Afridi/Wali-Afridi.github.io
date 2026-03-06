@@ -19,7 +19,7 @@
 
         <section class="project-details">
             <h2>Project Description</h2>
-            <p style="margin-left: 200px; margin-right: 200px;" align="left">
+            <p class="project-text">
                 As a part of the 2025 Cornell Maker Club Makeathon, my friend Sam Belliveau and I designed and built the Dunkatron 
                 Breathometer in under 24 hours. The Dunkatron is a wireless game controller that uses a microcontroller and some nifty 
                 signal processing to measure the user's breathing rate, and then transmit that to a host computer via Bluetooth Low Energy (BLE).
@@ -29,13 +29,13 @@
             </p>
             <img src="images/DunkatronBack.png" alt="Dunkatron Controller" width="500px">
 
-            <p style="margin-left: 200px; margin-right: 200px;" align="left">
+            <p class="project-text">
                 We wanted to create a wireless breathing device that could be used to control a program on a computer.
                 There are many health benefits of controlled breathing exercises, and a computer program measuring your 
                 breathing could help guide you through the process. In particular, we envisioned the system being used to
                 alleviate stress or anxiety attacks through a meditative game. 
             </p>
-            <p style="margin-left: 200px; margin-right: 200px;" align="left">
+            <p class="project-text">
                 To do this, we also created a simple game in Python using the Pygame library. The game is 
                 very similar to the classic game "Flappy Bird", where the player controls a character that 
                 must navigate through a series of obstacles. In our version, however, the character must simply maintain
@@ -45,7 +45,7 @@
             </p>
 
             <h3>Signal Processing</h2>
-            <p style="margin-left: 200px; margin-right: 200px;" align="left">
+            <p class="project-text">
                 To keep costs low, the breathing is detected with a microphone; However, past a certain strength of breathing, 
                 the amplitude clips, making it difficult to continue tracking strength. After investigating the issue, we 
                 noticed that the frequency of the microphone continued increasing the harder we blew. This made us realize that 
@@ -55,14 +55,14 @@
             </p>
             <img src="images/DunkatronCode.png" alt="Dunkatron Controller" width="400px">
 
-            <p style="margin-left: 200px; margin-right: 200px;" align="left">
+            <p class="project-text">
                 We built a chainable filter library in c++ for this project that allowed us to quickly experiment with various 
                 filtering algorithms. We ended up using a derivative filter to process our samples. By using a Derivative Filter, 
                 which has a frequency response that increases linearly as the frequency increases, we can read higher values for 
                 higher frequencies. We found that this gave us a remarkably impressive reading for breathing strength, and made for 
                 intuitive game controls.
             </p>
-            <p style="margin-left: 200px; margin-right: 200px;" align="left">
+            <p class="project-text">
                 We could only send ~30 readings a second over our BLE connection.
                 As a result, we needed to smooth out our amplitude measurements to cover all of the samples 
                 that happen over a span of time. By using 2 Timed Moving Averages and 
