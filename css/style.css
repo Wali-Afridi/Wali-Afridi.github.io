@@ -387,3 +387,19 @@ section {
     max-width: 1200px;
     margin: 0 auto;
 }
+
+/* Responsive adjustments for the featured section */
+
+/* For smaller laptops and tablets */
+@media (max-width: 1100px) {
+    .featured-container {
+        grid-template-columns: repeat(2, 1fr); /* 2 items per row */
+    }
+}
+
+/* For mobile phones */
+@media (max-width: 650px) {
+    .featured-container {
+        grid-template-columns: 1fr; /* 1 item per row */
+    }
+}
