@@ -403,3 +403,10 @@ section {
         grid-template-columns: 1fr; /* 1 item per row */
     }
 }
+
+.cropped-image {
+  width: 200px;         /* Set your desired width */
+  height: 200px;        /* Set your desired height */
+  object-fit: cover;    /* Crops the image to fit the dimensions */
+  object-position: center; /* Centers the crop focus area (Default) */
+}
